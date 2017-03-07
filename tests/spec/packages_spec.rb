@@ -10,7 +10,3 @@ describe command('curl http://localhost:8080') do
     its(:stdout) { should include 'Hudson' }
 end
 
-describe command('/usr/share/tomcat8/bin/catalina.sh version') do
-    its(:stdout) { should contain 'Apache Tomcat/8.0'}
-end
-
