@@ -56,6 +56,10 @@
             ]
         },
         {
+            "type": "shell",
+            "script": "scripts/install_jenkins.sh"
+        },
+        {
             "type": "file",
             "source": "./tests",
             "destination": "/tmp"
