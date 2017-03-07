@@ -57,6 +57,10 @@
         },
         {
             "type": "shell",
+            "script": "scripts/install_packer.sh"
+        },
+        {
+            "type": "shell",
             "script": "scripts/install_jenkins.sh"
         },
         {

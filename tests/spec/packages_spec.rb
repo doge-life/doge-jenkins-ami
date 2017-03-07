@@ -10,3 +10,8 @@ describe command('curl http://localhost:8080') do
     its(:stdout) { should include 'Hudson' }
 end
 
+describe 'Packer' do
+    describe command('packer --version') do
+        its(:stdout) { should eq "0.12.3\n" }
+    end
+end
