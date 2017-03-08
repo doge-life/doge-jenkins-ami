@@ -1,17 +1,30 @@
 require 'spec_helper'
 
-describe command('java -version') do
-    its(:stderr){ should include 'openjdk version "1.8' }
+describe 'OpenJDK' do
+    describe 'Installation' do
+        it 'should have installed the 1.8 JDK' do
+            expect(command('java -version').stderr).to include 'openjdk version "1.8'
+            expect(command('javac -version').stderr).to include 'javac 1.8'
+        end
+    end
 end
 
-# This is really for Jenkins, but it still has Hudson references
-describe command('curl http://localhost:8080') do
-    its(:stderr) { should_not include 'Connection refused' }
-    its(:stdout) { should include 'Hudson' }
+describe 'Jenkins' do
+    describe 'Installation' do
+        subject { command('sudo service jenkins status') }
+
+        it 'should be installed as a service' do
+            expect(subject.stdout).to include 'Jenkins Continuous Integration Server'
+        end
+    end
 end
 
 describe 'Packer' do
-    describe command('packer --version') do
-        its(:stdout) { should eq "0.12.3\n" }
+    describe 'Installation' do
+        subject { command('packer --version') }
+
+        it 'should be on the PATH and have the right version' do
+            expect(subject.stdout).to eq "0.12.3\n"
+        end
     end
 end
