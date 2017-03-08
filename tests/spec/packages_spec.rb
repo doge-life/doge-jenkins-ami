@@ -17,6 +17,15 @@ describe 'Jenkins' do
             expect(subject.stdout).to include 'Jenkins Continuous Integration Server'
         end
     end
+
+    describe 'Configuration' do
+        subject { command('curl http://localhost') }
+
+        it 'should be exposed on port 80' do
+            expect(subject.stderr).not_to include 'Connection refused'
+            expect(subject.stdout).to include 'Hudson'
+        end
+    end
 end
 
 describe 'Packer' do
