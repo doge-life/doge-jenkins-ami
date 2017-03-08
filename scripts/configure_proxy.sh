@@ -3,6 +3,7 @@
 # This script is meant to be used with docker and is always run as root.
 
 if [[ ! -z $PROXY_HOST ]]; then
+    echo "Adding proxy to environment and apt config"
     export http_proxy="http://$PROXY_UNAME:$PROXY_PASSWORD@$PROXY_HOST:$PROXY_PORT"
     echo "Acquire::http::Proxy \"http://$PROXY_UNAME:$PROXY_PASSWORD@$PROXY_HOST:$PROXY_PORT\";" \
         > /etc/apt/apt.conf.d/00DogeProxy
