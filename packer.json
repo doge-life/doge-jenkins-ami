@@ -52,12 +52,16 @@
             "type": "shell",
             "inline": [
                 "sudo apt-get update",
-                "sudo apt-get install -y ruby openjdk-8-jdk"
+                "sudo apt-get install -y ruby openjdk-8-jdk curl unzip"
             ]
         },
         {
             "type": "shell",
             "script": "scripts/install_packer.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/install_terraform.sh"
         },
         {
             "type": "shell",

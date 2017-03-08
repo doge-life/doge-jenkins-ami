@@ -23,8 +23,19 @@ describe 'Packer' do
     describe 'Installation' do
         subject { command('packer --version') }
 
-        it 'should be on the PATH and have the right version' do
+        it 'should be on the PATH and be available' do
             expect(subject.stdout).to eq "0.12.3\n"
         end
     end
 end
+
+describe 'Terraform' do
+    describe 'Installation' do
+        subject { command('terraform version') }
+
+        it 'should be on the PATH and be available' do
+           expect(subject.stdout).to include "Terraform v0.8.8"     
+        end
+    end
+end
+
